@@ -1,6 +1,5 @@
 class SongsController < ApplicationController
   def top
-    
   end
 
   def result
@@ -25,5 +24,6 @@ class SongsController < ApplicationController
 
     song = Song.joins(:tags).where(tags: {name: keyword}).first || Song.first
     @url = song.url
+    @bgimage_url = song.bgimage_url
   end
 end

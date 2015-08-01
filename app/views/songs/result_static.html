@@ -1,4 +1,23 @@
-<div class="mui-container mui-text-right">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CheerTube</title>
+    <link rel="stylesheet" media="all" href="/assets/songs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="true" />
+<link rel="stylesheet" media="all" href="/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" data-turbolinks-track="true" />
+    <script src="/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/songs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="de+8HJd4wHpNQx8Mx7m+ko8rIsqoJPFl35xcxUObvZWMBW6ZtEIPl21Z4SnQQP5V+RvqCzwBOrc15H0W/rpy/Q==" />
+    <link href="//cdn.muicss.com/mui-0.1.19/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.1.19/js/mui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <div class="mui-container mui-text-right">
   <a href="/songs/top" class="mui-text-display1 mui-text-black mui-pull-left">
     CheerTube
   </a>
@@ -33,7 +52,7 @@
    player = new YT.Player('player', {
      height: '390',
      width: '640',
-     videoId: '<%= @url %>',
+     videoId: 'XxGfrghh3-o',
      events: {
        'onReady': onPlayerReady
      }
@@ -49,7 +68,7 @@
 
 <style>
  body {
-   background-image:url(<%= asset_path @bgimage_url %>);
+   background-image:url(/assets/bg_dislike-524fb370a9deb97c743ba1b977acfd1b1a4caa4ac8d72ffef5c0153c6c69fa5d.jpg);
  }
 </style>
 
@@ -61,3 +80,7 @@
   js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+</html>

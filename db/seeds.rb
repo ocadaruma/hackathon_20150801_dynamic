@@ -20,8 +20,8 @@ Song.create(
   bgimage_url: "bg_anger.jpg", tags: [anger])
 
 Song.create(
-  title: "怒りの日",
-  url: "F_RYJg8-dSo",
+  title: "嫌い",
+  url: "XxGfrghh3-o",
   bgcolor_url: "bg_dislike.jpg",
   bgimage_url: "bg_dislike.jpg", tags: [dislike])
 
