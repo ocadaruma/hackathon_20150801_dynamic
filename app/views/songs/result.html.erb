@@ -1,0 +1,57 @@
+<div class="mui-panel mui-text-right">
+  <a href="/songs/top" class="mui-text-display1 mui-text-black mui-pull-left">
+    CheerTube
+  </a>
+  <form action="/songs/result" class="mui-form-inline" method="POST">
+    <input type="text" class="mui-form-control" placeholder="キーワード">
+    <button class="mui-btn mui-btn-default">検索</button>
+  </form>
+</div>
+
+<div id="player" style="width:640px;margin: 0 auto;" >
+
+<div class="mui-container mui-text-center">
+
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://10.206.212.37:4567/songs/top">Tweet</a>
+  <div class="fb-like"></div>
+</div>
+
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+ // YoutubeのJSファイルをロードします。
+ var tag = document.createElement('script');
+ tag.src = "https://www.youtube.com/iframe_api";
+ var firstScriptTag = document.getElementsByTagName('script')[0];
+ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+ // YoutubeのJSファイルがロードされ実行されると、
+ // onYouTubeIframeAPIReadyメソッドが呼ばれるので、
+ // 再生準備を行います。
+ var player;
+ function onYouTubeIframeAPIReady() {
+   // "player"という文字列は、divのID属性の値を指定します。
+   player = new YT.Player('player', {
+     height: '390',
+     width: '640',
+     videoId: '<%= @url %>',
+     events: {
+       'onReady': onPlayerReady
+     }
+   });
+ }
+
+ // 再生が可能になると呼び出されます。
+ function onPlayerReady(event) {
+   // 再生を開始します。
+   event.target.playVideo();
+ }
+</script>

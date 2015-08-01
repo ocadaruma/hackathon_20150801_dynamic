@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+anger = Tag.create(name: "anger")
+dislike = Tag.create(name: "dislike")
+fear = Tag.create(name: "fear")
+joy = Tag.create(name: "joy")
+like = Tag.create(name: "like")
+sad = Tag.create(name: "sad")
+
+Song.create(
+  title: "怒りの日",
+  url: "F_RYJg8-dSo",
+  bgcolor_url: "",
+  bgimage_url: "", tags: [anger])
