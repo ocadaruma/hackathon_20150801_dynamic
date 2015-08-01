@@ -1,11 +1,12 @@
 <div class="mui-container mui-text-center">
-  <img alt="" src="<%= asset_path "index_title.png" %>"/>
-  <img alt="" src="<%= asset_path "index_txt.png" %>"/>
+  <img alt="" src="<%= asset_path "index_title.png" %>" style="margin-top: 24px;"/>
+  <img alt="" src="<%= asset_path "index_txt.png" %>" style="margin-top: 24px;"/>
 </div>
 
 <div class="mui-container mui-text-center">
   <form action="/songs/result" method="POST">
-    <input type="text" class="mui-form-control" placeholder="キーワード" style="background-image:url(<%= asset_path "index_form.png" %>);">
+    <input type="text" style="background-color:transparent;display:block;margin:50px auto;font-size:22px;padding:0 20px;background-image:url(<%= asset_path "index_form.png" %>);border:none;height:65px;width:732px;" placeholder="あなたは今どんな気持ち？">
+    
     <input type="image" src="<%= asset_path "index_btn_play.png" %>"
            id="search" ></input>
   </form>
@@ -13,7 +14,7 @@
 
 <script>
  $(function() {
-   var apikey = "891B9DA9E00C8FF767C27BFA518937497E1BF8A4";
+   var apikey = "B5585A6A7042161DDBFEE49410D7E88B894ECDA1";
 
    $("form").submit(function(evt) {
      evt.preventDefault();
