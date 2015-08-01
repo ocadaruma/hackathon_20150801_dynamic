@@ -9,19 +9,19 @@ class SongsController < ApplicationController
     anger_param = params[:anger].to_f
 
     puts like_param
+    puts joy_param
+    puts anger_param
 
     like, dislike = like_param > 0 ? [like_param, 0] : [0, -like_param]
     joy, sad = joy_param > 0 ? [joy_param, 0] : [0, -joy_param]
     anger, fear = anger_param > 0 ? [anger_param, 0] : [0, -anger_param]
 
-    keywords = %w(like, dislike, joy, sad, anger, fear)
+    keywords = %w(like dislike joy sad anger fear)
     value, i = [like, dislike, joy, sad, anger, fear].each_with_index.max
-
-    puts value
 
     keyword = keywords[i]
 
-    puts keyword
+    p keyword
 
     song = Song.joins(:tags).where(tags: {name: keyword}).first || Song.first
     @url = song.url

@@ -1,15 +1,81 @@
-<div class="mui-panel mui-text-center">
-  <div class="mui-text-display3 mui-text-black">
-    CheerTube
-  </div>
-  <div class="mui-text-headline mui-text-black">
-    説明
-  </div>
+<div class="mui-container mui-text-center">
+  <img alt="" src="<%= asset_path "index_title.png" %>"/>
+  <img alt="" src="<%= asset_path "index_txt.png" %>"/>
 </div>
 
 <div class="mui-container mui-text-center">
-  <form action="/songs/result" class="mui-form-inline" method="POST">
-    <input type="text" class="mui-form-control" placeholder="キーワード">
-    <button class="mui-btn mui-btn-default">検索</button>
+  <form action="/songs/result" method="POST">
+    <input type="text" class="mui-form-control" placeholder="キーワード" style="background-image:url(<%= asset_path "index_form.png" %>);">
+    <input type="image" src="<%= asset_path "index_btn_play.png" %>"
+           id="search" ></input>
   </form>
 </div>
+
+<script>
+ $(function() {
+   var apikey = "891B9DA9E00C8FF767C27BFA518937497E1BF8A4";
+
+   $("form").submit(function(evt) {
+     evt.preventDefault();
+     var data = {
+       text : $("input[type=text]").val(),
+       out: "json",
+       callback: "jQuery1113004509483091533184_1438415460677",
+       apikey: apikey
+     };
+
+     $.ajax({
+       url:"http://ap.mextractr.net/ma9/emotion_analyzer",
+       data: data,
+       dataType: "jsonp"
+     }).done(done)
+      .fail(function() {
+        console.log("emotion failed");
+      });
+   });
+
+   function done(data) {
+     var text = data.analyzed_text;
+     var result = [0, 0, 0];
+
+     while (text.length > 0) {
+       var regexp = /^[^\[]+\[([-0-9\.]+),([-0-9\.]+),([-0-9\.]+)\]/g;
+       var array = regexp.exec(text);
+       if (array == null) {
+         break;
+       }
+
+       text = text.replace(regexp, "");
+       console.log(text);
+
+       for (i = 1; i < array.length; i++) {
+         var type = (i - 1) % 3;
+         result[type] += Number(array[i]);
+       }
+       console.log(result);
+     }
+
+     var form = $("<form action='/songs/result' method='POST'>");
+     var like = $("<input type='text' name='like'>");
+     var joy = $("<input type='text' name='joy'>");
+     var anger = $("<input type='text' name='anger'>");
+
+     form.append(like).append(joy).append(anger);
+     like.val(result[0]);
+     joy.val(result[1]);
+     anger.val(result[2]);
+
+     form.submit();
+   }
+   /*
+      // test
+      done({"analyzed_text":"%E3%80%90%E3%80%90%E3%81%82%E3%82%8A%E3%80%91%20[1.00,2.00,3.00]%20%20%E3%80%91%E3%81%88%E3%80%90%E3%80%90%E3%81%AA%E3%81%84%E3%80%91%20[-5.00,4.00,-20.00]%20%20%E3%80%91","likedislike":0,"joysad":0,"angerfear":0}); */
+ });
+
+</script>
+
+<style>
+ body {
+   background-image:url(<%= asset_path "bg_index.jpg" %>);
+ }
+</style>

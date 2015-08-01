@@ -16,5 +16,35 @@ sad = Tag.create(name: "sad")
 Song.create(
   title: "怒りの日",
   url: "F_RYJg8-dSo",
-  bgcolor_url: "",
-  bgimage_url: "", tags: [anger])
+  bgcolor_url: "bg_anger.jpg",
+  bgimage_url: "bg_anger.jpg", tags: [anger])
+
+Song.create(
+  title: "怒りの日",
+  url: "F_RYJg8-dSo",
+  bgcolor_url: "bg_dislike.jpg",
+  bgimage_url: "bg_dislike.jpg", tags: [dislike])
+
+Song.create(
+  title: "ダースベイダーのテーマ",
+  url: "-bzWSJG93P8",
+  bgcolor_url: "bg_fear.jpg",
+  bgimage_url: "bg_fear.jpg", tags: [fear])
+
+Song.create(
+  title: "歓喜の歌",
+  url: "dsQ9CP_GlTQ",
+  bgcolor_url: "bg_joy.jpg",
+  bgimage_url: "bg_joy.jpg", tags: [joy])
+
+Song.create(
+  title: "happy days",
+  url: "inmcWweivHs",
+  bgcolor_url: "bg_like.jpg",
+  bgimage_url: "bg_like.jpg", tags: [like])
+
+Song.create(
+  title: "別れの曲",
+  url: "0gM4dWVc0fM",
+  bgcolor_url: "bg_sad.jpg",
+  bgimage_url: "bg_sad.jpg", tags: [sad])
