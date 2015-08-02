@@ -1,14 +1,53 @@
-<div class="mui-container mui-text-right">
-  <a href="/songs/top" class="mui-text-display1 mui-text-black mui-pull-left">
-    CheerTube
-  </a>
-  <form action="/songs/result" class="mui-form-inline" method="POST">
-    <input type="text" class="mui-form-control" placeholder="キーワード">
-    <button class="mui-btn mui-btn-default">検索</button>
-  </form>
+<div
+     style="background-image:url(<%= asset_path "main_head_bg.png" %>);">
+  <div style="width: 800px;
+              margin: 0 auto;
+              padding-top: 6px;
+              padding-bottom: 6px;">
+    <a href="/songs/top"
+       class="mui-text-display1 mui-text-black">
+      <img alt="" src="<%= asset_path "main_title.png" %>"/>
+    </a>
+    <form action="/songs/result"
+          class="mui-form-inline mui-pull-right"
+          method="POST"
+          style="margin-top: 6px;">
+      <input type="text"
+             style="background-color:transparent;
+                    min-width: 200px;
+                    background-image:url(<%= asset_path "main_form.png" %>);
+                    border:none;
+                    -moz-background-size:100% 100%;
+                    background-size:100% 100%;"
+             placeholder="あなたは今どんな気持ち？"
+             value="<%= @text %>">
+      <input type="image"
+             src="<%= asset_path "main_search_icon.png" %>"
+             id="search"></input>
+    </form>
+  </div>
 </div>
 
-<div id="player" style="width:640px;margin: 0 auto; margin-left: 160px;" >
+<div class="mui-container" style="width: 640px;
+                                  margin-top: 42px;
+                                  margin-left: auto;
+                                  margin-right: auto;">
+  <div class="mui-text-right" style="margin-right: 12px;">
+    <img alt="" src="<%= asset_path "main_txt1.png" %>"/>
+    <%= @text %>
+    <img alt="" src="<%= asset_path "main_txt2.png" %>"/>
+  </div>
+
+  <div style="background-image:url(<%= asset_path "main_movie_bg.png" %>);
+              padding: 18px;
+              -moz-background-size:100% 100%;
+              background-size:100% 100%;">
+    <div id="player" style="display: block; width: 100%;"></div>
+    <div class="mui-text-subhead mui-text-black">
+      <%= @song.title %>
+    </div>
+  </div>
+</div>
 
 <div class="mui-container mui-text-center">
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://10.206.212.37:4567/songs/top">Tweet</a>
@@ -33,7 +72,7 @@
    player = new YT.Player('player', {
      height: '390',
      width: '640',
-     videoId: '<%= @url %>',
+     videoId: '<%= @song.url %>',
      events: {
        'onReady': onPlayerReady
      }
@@ -49,7 +88,7 @@
 
 <style>
  body {
-   background-image:url(<%= asset_path @bgimage_url %>);
+   background-image:url(<%= asset_path @song.bgimage_url %>);
  }
 </style>
 

@@ -6,6 +6,7 @@ class SongsController < ApplicationController
     like_param = params[:like].to_f
     joy_param = params[:joy].to_f
     anger_param = params[:anger].to_f
+    @text = params[:text]
 
     puts like_param
     puts joy_param
@@ -22,8 +23,6 @@ class SongsController < ApplicationController
 
     p keyword
 
-    song = Song.joins(:tags).where(tags: {name: keyword}).first || Song.first
-    @url = song.url
-    @bgimage_url = song.bgimage_url
+    @song = Song.joins(:tags).where(tags: {name: keyword}).first || Song.first
   end
 end
